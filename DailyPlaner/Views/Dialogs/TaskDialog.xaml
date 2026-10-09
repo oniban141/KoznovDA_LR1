@@ -1,0 +1,60 @@
+<Window x:Class="DailyPlaner.Views.Dialogs.TaskDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Задача" Height="560" Width="440"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize"
+        Background="{StaticResource RetroBackgroundBrush}">
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Название" Margin="0,0,0,4"/>
+        <Grid Grid.Row="1">
+            <TextBox x:Name="TitleBox" TextChanged="TitleBox_TextChanged"/>
+            <TextBlock x:Name="TitleWatermark" Text="Введите название задачи"
+                       Foreground="{StaticResource RetroMutedBrush}" Opacity="0.55" Margin="8,0,0,0"
+                       VerticalAlignment="Center" IsHitTestVisible="False"/>
+        </Grid>
+        <TextBlock Grid.Row="2" Text="Описание" Margin="0,12,0,4"/>
+        <Grid Grid.Row="3">
+            <TextBox x:Name="DescriptionBox" TextWrapping="Wrap" AcceptsReturn="True" Height="70"
+                     VerticalContentAlignment="Top" TextChanged="DescriptionBox_TextChanged"/>
+            <TextBlock x:Name="DescriptionWatermark" Text="Введите описание"
+                       Foreground="{StaticResource RetroMutedBrush}" Opacity="0.55" Margin="8,6,0,0"
+                       VerticalAlignment="Top" IsHitTestVisible="False"/>
+        </Grid>
+        <TextBlock Grid.Row="4" Text="Срок выполнения" Margin="0,12,0,4"/>
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <DatePicker Grid.Column="0" x:Name="DueDatePicker"/>
+            <ComboBox Grid.Column="2" x:Name="TimeComboBox"/>
+        </Grid>
+        <StackPanel Grid.Row="6" Orientation="Horizontal" Margin="0,14,0,0">
+            <TextBlock Text="Приоритет" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <ComboBox x:Name="PriorityComboBox" Width="160" HorizontalAlignment="Left"/>
+            <CheckBox x:Name="ReminderCheckBox" Content="Напоминание" Margin="24,0,0,0" VerticalAlignment="Center"
+                      Checked="ReminderCheckBox_Changed" Unchecked="ReminderCheckBox_Changed"/>
+        </StackPanel>
+        <StackPanel Grid.Row="7" x:Name="ReminderPanel" Visibility="Collapsed" Margin="0,10,0,0">
+            <TextBlock Text="Напомнить за" Margin="0,0,0,4"/>
+            <ComboBox x:Name="ReminderOffsetComboBox" Width="220" HorizontalAlignment="Left"
+                      SelectionChanged="ReminderOffsetComboBox_SelectionChanged"/>
+        </StackPanel>
+        <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button Content="Отмена" Click="Cancel_Click" Width="100" Margin="0,0,12,0"/>
+            <Button Content="Сохранить" Click="Save_Click" Width="110"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,66 @@
+<Window x:Class="DailyPlaner.Views.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Регистрация" Height="375" Width="480" WindowStartupLocation="CenterScreen" MinHeight="480"
+        Background="{StaticResource RetroBackgroundBrush}">
+    <Grid Background="{StaticResource RetroBackgroundBrush}">
+        <StackPanel Margin="20" VerticalAlignment="Center">
+            <TextBlock Text="Ежедневник" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" Margin="0,0,0,4"/>
+            <TextBlock Text="Создайте аккаунт" FontWeight="Bold" FontSize="14" Margin="0,0,0,16"/>
+            <TextBlock Text="Имя пользователя" Margin="0,0,0,4"/>
+            <Grid Margin="0,0,0,12">
+                <TextBox Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         TextChanged="UsernameBox_TextChanged"/>
+                <TextBlock x:Name="UsernameWatermark" Text="Введите имя пользователя"
+                           Foreground="{StaticResource RetroMutedBrush}" Opacity="0.55" Margin="8,0,0,0"
+                           VerticalAlignment="Center" IsHitTestVisible="False"/>
+            </Grid>
+            <TextBlock Text="Пароль" Margin="0,0,0,4"/>
+            <Grid Margin="0,0,0,12">
+                <PasswordBox x:Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged"/>
+                <TextBlock x:Name="PasswordWatermark" Text="Введите пароль"
+                           Foreground="{StaticResource RetroMutedBrush}" Opacity="0.55" Margin="8,0,0,0"
+                           VerticalAlignment="Center" IsHitTestVisible="False"/>
+            </Grid>
+            <TextBlock Text="Подтвердите пароль" Margin="0,0,0,4"/>
+            <Grid Margin="0,0,0,12">
+                <PasswordBox x:Name="ConfirmPasswordBox" PasswordChanged="ConfirmPasswordBox_PasswordChanged"/>
+                <TextBlock x:Name="ConfirmPasswordWatermark" Text="Повторите пароль"
+                           Foreground="{StaticResource RetroMutedBrush}" Opacity="0.55" Margin="8,0,0,0"
+                           VerticalAlignment="Center" IsHitTestVisible="False"/>
+            </Grid>
+            <TextBlock Text="Email" Margin="0,0,0,4"/>
+            <Grid Margin="0,0,0,12">
+                <TextBox Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         TextChanged="EmailBox_TextChanged"/>
+                <TextBlock x:Name="EmailWatermark" Text="Введите email"
+                           Foreground="{StaticResource RetroMutedBrush}" Opacity="0.55" Margin="8,0,0,0"
+                           VerticalAlignment="Center" IsHitTestVisible="False"/>
+            </Grid>
+            <TextBlock Text="Пол" Margin="0,0,0,4"/>
+            <Grid Margin="0,0,0,16">
+                <ComboBox x:Name="GenderComboBox" ItemsSource="{Binding Genders}" SelectedValue="{Binding SelectedGenderId, Mode=TwoWay}"
+                          SelectedValuePath="Id">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock x:Name="GenderWatermark" Text="Выберите пол"
+                           Foreground="{StaticResource RetroMutedBrush}" Opacity="0.55" Margin="8,0,0,0"
+                           VerticalAlignment="Center" IsHitTestVisible="False"/>
+            </Grid>
+            <Grid Margin="0,8,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Content="Отмена" Command="{Binding CancelCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+                <Button Grid.Column="2" Content="Зарегистрироваться" Command="{Binding RegisterCommand}"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>

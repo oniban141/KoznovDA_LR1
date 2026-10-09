@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="000e7f2de6eb4c0d80e3c6d6f2bbd1bd" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="DailyPlannerDBV3Model.Event" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DailyPlannerDBV3Model.Gender" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DailyPlannerDBV3Model.Note" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DailyPlannerDBV3Model.Reminder" Width="1.5" PointX="7.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DailyPlannerDBV3Model.Role" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DailyPlannerDBV3Model.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DailyPlannerDBV3Model.Task" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DailyPlannerDBV3Model.User" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="DailyPlannerDBV3Model.FK__Events__UserId__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="DailyPlannerDBV3Model.FK__Reminders__Event__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="DailyPlannerDBV3Model.FK__Users__GenderId__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="DailyPlannerDBV3Model.FK__Notes__UserId__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="DailyPlannerDBV3Model.FK__Reminders__TaskI__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="DailyPlannerDBV3Model.FK__Reminders__UserI__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="DailyPlannerDBV3Model.FK__Users__RoleId__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="DailyPlannerDBV3Model.FK__Tasks__UserId__4316F928" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
